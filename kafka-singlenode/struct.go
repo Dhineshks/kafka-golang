@@ -10,7 +10,7 @@ type Info struct {
 	Data          []Datastruct `json:"array"`
 }
 
-//Datastruct
+//Datastruct struct
 type Datastruct struct {
 	Timestamp int     `json:"timestamp"`
 	Lat       float64 `json:"lat"`
