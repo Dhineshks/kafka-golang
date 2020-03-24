@@ -13,5 +13,11 @@ func handle(conn net.Conn) {
 
 	//csv reads and writes comma-separated values
 	cv := csv.NewReader(conn)
-	
+
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recovered ")
+		}
+	}()
+
 }
