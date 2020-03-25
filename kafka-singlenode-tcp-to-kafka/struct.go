@@ -5,7 +5,7 @@ package main
 //Info struct
 type Info struct {
 	CustomerName string       `json:"customer_name"`
-	Address      string       `json:"address"`
+	Locality     string       `json:"locality"`
 	Phone        string       `json:"phone"`
 	CustomerID   string       `json:"id"`
 	Data         []Datastruct `json:"array"`
