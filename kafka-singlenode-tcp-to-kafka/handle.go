@@ -43,6 +43,20 @@ func handle(conn net.Conn) {
 		amount := record[5]
 		d := time.Now()
 		t := d.Format("2006.01.02")
+
+		s := Info{
+			CustomerName: name,
+			Locality:     loc,
+			Phone:        ph,
+			CustomerID:   id,
+			Date:         t,
+			Data: []Datastruct{
+				Datastruct{
+					Timestamp:   ti,
+					TotalAmount: amount,
+				},
+			},
+		}
 	}
 
 }
