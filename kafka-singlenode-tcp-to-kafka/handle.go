@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/csv"
+	"fmt"
 	"net"
 )
 
@@ -14,9 +15,13 @@ func handle(conn net.Conn) {
 	//csv reads and writes comma-separated values
 	cv := csv.NewReader(conn)
 
+	//recover is builtin function which is used to regain the control of panicking goroutine
+	//recover is useful only when called inside defered function
+	//executing a call to recover inside a defered function stops the paniking sequence by restoring
+	//normal execution and retrives the error value passed to the call of panic
 	defer func() {
 		if r := recover(); r != nil {
-			fmt.Println("Recovered ")
+			fmt.Println("Recovered for -> ", r)
 		}
 	}()
 
