@@ -1,17 +1,18 @@
 package main
 
+//A Barcode reader sends customer data through tcp
+
 //Info struct
 type Info struct {
-	Name       string       `json:"name"`
-	FatherName string       `json:"fathers_name"`
-	Standard   string       `json:"standard"`
-	Section    string       `json:"section"`
-	Data       []Datastruct `json:"array"`
+	CustomerName string       `json:"customer_name"`
+	Address      string       `json:"address"`
+	Phone        string       `json:"phone"`
+	CustomerID   string       `json:"id"`
+	Data         []Datastruct `json:"array"`
 }
 
 //Datastruct struct
 type Datastruct struct {
-	Date      string `json:"date"`
-	TotalMark string `json:"total_mark"`
-	Grade     string `json:"grade"`
+	PurchasedDate string `json:"date"`
+	TotalAmount   string `json:"total_amount"`
 }
