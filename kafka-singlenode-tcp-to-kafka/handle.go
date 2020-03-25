@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net"
+	"time"
 )
 
 func handle(conn net.Conn) {
@@ -33,7 +34,14 @@ func handle(conn net.Conn) {
 			}
 			return
 		}
-		fmt.Println(record)
+
+		name := record[0]
+		loc := record[1]
+		ph := record[2]
+		id := record[3]
+		amount := record[4]
+		d := time.Now()
+		t := d.Format("2006.01.02")
 	}
 
 }
