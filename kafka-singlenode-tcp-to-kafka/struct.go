@@ -8,11 +8,12 @@ type Info struct {
 	Locality     string       `json:"locality"`
 	Phone        string       `json:"phone"`
 	CustomerID   string       `json:"id"`
+	Date         string       `json:"date"`
 	Data         []Datastruct `json:"array"`
 }
 
 //Datastruct struct
 type Datastruct struct {
-	PurchasedDate string `json:"date"`
-	TotalAmount   string `json:"total_amount"`
+	Timestamp   string `json:"timestamp"`
+	TotalAmount string `json:"total_amount"`
 }
