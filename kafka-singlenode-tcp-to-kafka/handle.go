@@ -27,7 +27,7 @@ func handle(conn net.Conn) {
 		}
 	}()
 	for {
-		if record, err = cv.Read(); err != nil || len(record) != 5 {
+		if record, err = cv.Read(); err != nil || len(record) != 6 {
 			if err == io.EOF || len(record) == 0 {
 				fmt.Println("Empty record")
 				return
@@ -39,7 +39,8 @@ func handle(conn net.Conn) {
 		loc := record[1]
 		ph := record[2]
 		id := record[3]
-		amount := record[4]
+		ti := record[4]
+		amount := record[5]
 		d := time.Now()
 		t := d.Format("2006.01.02")
 	}
