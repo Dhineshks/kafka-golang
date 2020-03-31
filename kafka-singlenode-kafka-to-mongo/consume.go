@@ -7,7 +7,10 @@ import (
 	"time"
 
 	"github.com/segmentio/kafka-go"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
+
+var dbCreds = options.Client().ApplyURI("mongodb://localhost:27017")
 
 func main() {
 	topic := "customer-data"
