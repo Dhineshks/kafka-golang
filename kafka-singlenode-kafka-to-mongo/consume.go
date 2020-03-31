@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"time"
 
@@ -28,4 +29,9 @@ func main() {
 		}
 		fmt.Println(string(b))
 	}
+}
+
+func mongocli(m []byte) {
+	var parse Info
+	json.Unmarshal([]byte(m), &parse)
 }
