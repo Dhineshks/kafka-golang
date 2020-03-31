@@ -4,9 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/segmentio/kafka-go"
+	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
@@ -32,6 +34,20 @@ func main() {
 		}
 		fmt.Println(string(b))
 	}
+}
+
+func getclient() (*mongo.Client, error) {
+	ctx, cancel := context.WithTimeout(context.TODO(), 10*time.Second)
+	defer cancel()
+
+	client, err := mongo.Connect(ctx, options.Client(), dbCreds)
+	if err != nil {
+		log.Fatal(err)
+	}
+	if err == nil {
+		return client, err
+	}
+	return client, err
 }
 
 func mongocli(m []byte) {
