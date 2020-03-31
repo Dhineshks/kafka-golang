@@ -51,6 +51,13 @@ func getclient() (*mongo.Client, error) {
 }
 
 func mongocli(m []byte) {
-	var parse Info
-	json.Unmarshal([]byte(m), &parse)
+	var a Info
+	json.Unmarshal([]byte(m), &a)
+
+	cli, err := getclient()
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer cli.Disconnect(context.Background())
+	collection := cli.Database("Data").Collection("customer")
 }
